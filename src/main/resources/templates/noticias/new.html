@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="commons/header :: header" />
+
+<body>
+  <div th:replace="commons/menu :: menu" />
+
+  <div class="container">
+    <main>
+  
+      <div class="row g-5">
+        
+        <div class="col-8">
+          <h4 class="mb-3" th:text="#{noticia.dato}">Datos Noticia</h4>
+          <form class="needs-validation"  method="post" th:action="@{/noticias/save}" novalidate>
+            <div class="row g-4">
+              <div class="col-sm-6">
+                <label for="titular" class="form-label" th:text="#{noticia.titular}">Titular</label>
+                <input type="text" class="form-control" id="titular" name="titular" placeholder="" th:value="${noticia.titular}" value="" required>
+                <div class="invalid-feedback">
+                  Titular requerido.
+                </div>
+              </div>
+  
+              <div class="col-sm-6">
+                <label for="lastName" class="form-label" th:text="#{noticia.descripcion}">Descripción</label>
+                <input type="text" class="form-control" id="descripcion" name="descripcion" placeholder="" th:value="${noticia.descripcion}" value="" required>
+                <div class="invalid-feedback">
+                  Descripción requerida.
+                </div>
+              </div>
+  
+            <hr class="my-4">
+  
+            <div class="col-sm-12">
+              <div class="btn-group">
+                <button class="btn btn-success" type="submit" th:text="#{boton.crear}">Crear</button>
+
+                <a class="btn btn-danger" th:href="@{/noticias/list}" href="#" role="button" th:text="#{boton.cancelar}">Cancelar</a>
+              </div>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </main>
+
+  </div>
